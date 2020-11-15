@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td{
+            border:1px solid black;
+        }
+        td{
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="name" id="name">
+    <input type="text" name="roll" id="roll">
+    <input type="text" name="batch" id="batch">
+    <button type="button" onclick="createJson()">Add JSON</button>
+    <button type="button" onclick="createTable()">Creat Table</button>
+
+    <table id="table"></table>
+</body>
+<script>
+    var json1=[];
+    console.log(json1.length)
+    function createJson(){
+        var s_name=document.getElementById('name').value;
+        var s_roll=document.getElementById('roll').value;
+        var s_batch=document.getElementById('batch').value;
+      
+        
+        if(s_name!="" && s_roll!="" && s_batch!="" ){
+        json1.push({"Name":s_name,"roll":s_roll,"batch":s_batch});
+       console.log(json1)
+       }else{
+           alert('please fill all fields');
+       }
+    }
+    function createTable(){
+        if(json1.length>0){
+        var content="";
+        var s_table=document.getElementById('table');
+        json1.forEach(function(item,index){
+             content+="<tr><td>"+item.Name+"</td><td>"+item.roll+"</td><td>"+item.batch+"</td></tr>"
+        })
+         s_table.innerHTML=content;
+        }else{
+            alert("First add values")
+        }
+    }
+</script>
+</html>
