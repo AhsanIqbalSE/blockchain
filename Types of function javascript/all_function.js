@@ -1,4 +1,3 @@
-var num=5;
 var input_val;
 function inputValue(){
   var readline=require("readline");
